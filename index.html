@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> Be My Valentine 💘</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: #fff7f7;
+        font-family: 'Comic Sans MS', 'Trebuchet MS', sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .card {
+        background: white;
+        border-radius: 20px;
+        padding: 30px;
+        width: 90%;
+        max-width: 360px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        animation: pop 1s ease;
+    }
+
+    @keyframes pop {
+        0% { transform: scale(0.8); opacity: 0; }
+        100% { transform: scale(1); opacity: 1; }
+    }
+
+    .snoopy img {
+        width: 180px;
+        border-radius: 12px;
+        margin-bottom: 10px;
+    }
+
+    h1 {
+        color: #d6002f;
+        margin: 10px 0;
+        font-size: 26px;
+    }
+
+    p {
+        color: #444;
+        font-size: 16px;
+        margin: 15px 0;
+    }
+
+    .buttons {
+        margin-top: 20px;
+    }
+
+    button {
+        border: none;
+        padding: 12px 20px;
+        border-radius: 25px;
+        font-size: 16px;
+        cursor: pointer;
+        margin: 8px;
+        transition: 0.3s;
+    }
+
+    .yes {
+        background: #ff4d6d;
+        color: white;
+    }
+
+    .yes:hover {
+        background: #ff1f4b;
+    }
+
+    .no {
+        background: #eee;
+        color: #333;
+        position: relative;
+    }
+
+    .no:hover {
+        transform: translateX(20px);
+    }
+
+    .hearts {
+        position: fixed;
+        bottom: 0;
+        font-size: 24px;
+        animation: float 5s linear infinite;
+    }
+
+    @keyframes float {
+        from {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        to {
+            transform: translateY(-100vh);
+            opacity: 0;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="card" id="card">
+    <div class="snoopy">
+        <img 
+    src="https://i.pinimg.com/originals/b2/c8/5b/b2c85bda67c05e092c5c0d53aeda26f7.gif"
+    alt="Snoopy with Heart"
+>
+
+    </div>
+
+    <h1>Hey My Valentine…</h1>
+    <p>
+        You make my heart do happy dances,
+        just like Snoopy when he’s in love 🐶💃 💕
+    </p>
+    <p><strong>Will you be my Valentine?</strong></p>
+
+    <div class="buttons">
+        <button class="yes" onclick="yesClicked()">YES 💖</button>
+        <button class="no">NO 🙈</button>
+    </div>
+</div>
+
+<script>
+function yesClicked() {
+    document.getElementById("card").innerHTML = `
+        <div class="snoopy">
+            <img 
+    src="https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUybnpiYzc1aXE2Z2Ziczd4dm1tajllNDV0ZWczdjdrN3JjMWtzc3o3bCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/157anh4ffDsSA/giphy.gif"
+    alt="Charlie Brown & Snoopy Dancing"
+    style="width:220px; border-radius:12px;"
+>
+            >
+        </div>
+        <h1>YAYYYYY!!!</h1>
+        <p>
+            You just made me the happiest Esnupi ever 🥹❤️  
+            Happy Valentine’s Day, choyyyy!
+        </p>
+    `;
+
+    for (let i = 0; i < 20; i++) {
+        createHeart();
+    }
+}
+
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "hearts";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 5000);
+}
+</script>
+
+</body>
+</html>
